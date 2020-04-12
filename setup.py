@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="SimilarSentences",
-    version="0.0.1",
+    version="0.0.2",
     author="Shankar Ganesh Jayaraman",
     author_email="shangan.23@gmail.com",
     description="Similar sentence prediction",
