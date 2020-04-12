@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="SimilarSentences",
+    name="similar-sentences",
     version="0.0.2",
     author="Shankar Ganesh Jayaraman",
     author_email="shangan.23@gmail.com",
