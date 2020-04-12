@@ -17,7 +17,7 @@ setuptools.setup(
         "sentence-transformers"
     ],
     classifiers=[
-        "Development Status :: 1 - Beta",
+        "Development Status :: 3 - Alpha",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
