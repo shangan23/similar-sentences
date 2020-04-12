@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="similar-sentences",
+    name="SimilarSentences",
     version="0.0.1",
     author="Shankar Ganesh Jayaraman",
     author_email="shangan.23@gmail.com",
@@ -18,7 +18,7 @@ setuptools.setup(
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: Apache License 2.0",
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
