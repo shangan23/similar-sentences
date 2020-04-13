@@ -1,3 +1,5 @@
+[![PyPI version](https://badge.fury.io/py/similar-sentences.svg)](https://badge.fury.io/py/similar-sentences)
+
 # similar-sentences
 
 ```python
