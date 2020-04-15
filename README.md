@@ -1,6 +1,6 @@
 [![PyPI version](https://badge.fury.io/py/similar-sentences.svg)](https://badge.fury.io/py/similar-sentences)
 
-# Similar sentence Prediction with more acurate results with your dataset on top of BERT pretrained model.
+# Similar sentence Prediction with more accurate results with your dataset on top of BERT pertained model.
 
 ## Setup
 
@@ -12,20 +12,20 @@ pip install similar-sentences
 
 ### Methods to know
 
-#### SimilarSentences(FilePath,Type)
+> SimilarSentences(FilePath,Type)
   FilePath: Reference to model.zip for prediction. Reference to sentences.txt for training. 
   Type: `predict` or `train`
 
-#### .train()
+> .train()
   Used for training the setences. Which required `(".txt", "train")` as parameter in SimilarSentences
 
-#### .predict(InputSentences, NumberOfPrediction, DesiredJsonOutput)
+> .predict(InputSentences, NumberOfPrediction, DesiredJsonOutput)
   Used for predicting the setences. Which required `(".zip", "predict")` as parameter in SimilarSentences
   InputSentences: To find the similar sentence for. 
   NumberOfPrediction: Number of results for the prediction
   DesiredJsonOutput: The output will be in JSON format. `simple` produces a plain output. `detailed` produces detailed output with score 
   
-#### .reload()
+> .reload()
   Used for reloading (or) updating the model. Which required `(".zip", "predict")` as parameter in SimilarSentences
   
 ## Getting Started
