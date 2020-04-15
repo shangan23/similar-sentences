@@ -19,8 +19,11 @@ pip install similar-sentences
 #### .train()
   Used for training the setences. Which required `(".txt", "train")` as parameter in SimilarSentences
 
-#### .predict()
+#### .predict(InputSentences, NumberOfPrediction, DesiredJsonOutput)
   Used for predicting the setences. Which required `(".zip", "predict")` as parameter in SimilarSentences
+  InputSentences: To find the similar sentence for. 
+  NumberOfPrediction: Number of results for the prediction
+  DesiredJsonOutput: The output will be in JSON format. `simple` produces a plain output. `detailed` produces detailed output with score 
   
 #### .reload()
   Used for reloading (or) updating the model. Which required `(".zip", "predict")` as parameter in SimilarSentences
