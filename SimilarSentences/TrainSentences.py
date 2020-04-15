@@ -59,8 +59,7 @@ class TrainSentences:
         print('~~~~~~~~~\n')
         print('Download model.zip and use it for prediction ...\n')
         print('~~~~~~~~\n')
-        shutil.rmtree(self.model_save_path)
-
+        
     def compress_file(self,dirpath, zippath):
         fzip = zipfile.ZipFile(zippath, 'w', zipfile.ZIP_DEFLATED)
         basedir = os.path.dirname(dirpath) + '/' 
@@ -69,3 +68,4 @@ class TrainSentences:
             for f in files:
                 fzip.write(root + '/' + f, dirname + '/' + f)
         fzip.close()
+        shutil.rmtree(self.model_save_path)
