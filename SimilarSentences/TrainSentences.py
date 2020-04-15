@@ -11,9 +11,10 @@ class TrainSentences:
     def __init__(self, txt_file):
         dir_path = os.getcwd() + '/'
         file_path = dir_path + txt_file
-        print('Scanning the path '+file_path+ ' ...\n')
+        print('\n')
+        print('Scanning the path '+file_path+ ' ...')
         if(os.path.isfile(file_path) and self.get_file_extension(file_path) == ".txt"):
-            print('Training file validation OK...\n')
+            print('Training file validation OK...')
             self.train_file_path = file_path
             if not os.path.exists(dir_path+'trained_model'):
                 os.makedirs(dir_path+'trained_model')
@@ -49,17 +50,14 @@ class TrainSentences:
         sentence_embeddings = model.encode(sentences)
         vecs = np.stack(sentence_embeddings)
         model.save(path.get('model'))
-        print('\n')
-        print('Saving the model to '+path.get('model')+'...\n')
+        print('Saving the model to '+path.get('model')+'...')
         np.save(path.get('vector'), sentence_embeddings)
-        print('Saving the vector to '+path.get('vector')+'...\n')
-        print('Initiating model compression(.zip) ...\n')
+        print('Saving the vector to '+path.get('vector')+'...')
+        print('Initiating model compression(.zip) ...')
         os.rename(path.get('training_set'), path.get('train_file'))
         self.compress_file(path.get('model'),path.get('zip_path'))
-        print('~~~~~~~~~\n')
-        print('Download model.zip and use it for prediction ...\n')
-        print('~~~~~~~~\n')
-        
+        print('→ Download "model.zip" and use it for prediction ...')
+       
     def compress_file(self,dirpath, zippath):
         fzip = zipfile.ZipFile(zippath, 'w', zipfile.ZIP_DEFLATED)
         basedir = os.path.dirname(dirpath) + '/' 

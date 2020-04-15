@@ -28,7 +28,7 @@ class SimilarSentences:
         if(not os.path.isdir(model_path+'0_BERT') and not os.path.isdir(model_path+'1_Pooling') and not os.path.isfile(model_path+'vector.npy')):
             self.reload()
         else:
-            print('For reloading/updating the model try model.relaod()\n')
+            print('For reloading/updating the model try model.relaod()')
 
     def reload(self):
         dir_path = os.getcwd()
