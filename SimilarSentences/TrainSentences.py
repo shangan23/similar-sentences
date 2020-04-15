@@ -10,17 +10,18 @@ class TrainSentences:
     def __init__(self, txt_file):
         dir_path = os.getcwd() + '/'
         file_path = dir_path + txt_file
-        print('Scanning the path '+file_path+ ' ...')
+        print('Scanning the path '+file_path+ ' ...\n')
         if(os.path.isfile(file_path) and self.get_file_extension(file_path) == ".txt"):
-            print('Training file validation OK...')
+            print('Training file validation OK...\n')
             self.train_file_path = file_path
             if not os.path.exists(dir_path+'trained_model'):
                 os.makedirs(dir_path+'trained_model')
             self.model_save_path = dir_path+'trained_model/'
+            self.zip_save_path = dir_path+'/'
         else:
             exit('Training file is not valid... exiting...')
 
-    def get_file_extension(src):
+    def get_file_extension(self,src):
         return os.path.splitext(src)[-1].lower()
 
     def get_path(self):
@@ -28,7 +29,8 @@ class TrainSentences:
         _files = {
             'model': self.model_save_path,
             'vector': self.model_save_path + _vector_file,
-            'training_set': self.train_file_path
+            'training_set': self.train_file_path,
+            'zip_path' : self.zip_save_path+'model.zip'
         }
         return _files
 
@@ -44,16 +46,21 @@ class TrainSentences:
         sentence_embeddings = model.encode(sentences)
         vecs = np.stack(sentence_embeddings)
         model.save(path.get('model'))
-        np.save(path.get('training_set'), sentence_embeddings)
-        self.compress_file(path.get('model'))
+        print('\n')
+        print('Saving the model to '+path.get('model')+'...\n')
+        np.save(path.get('vector'), sentence_embeddings)
+        print('Saving the vector to '+path.get('vector')+'...\n')
+        print('Initiating model compression(.zip) ...\n')
+        self.compress_file(path.get('model'),path.get('zip_path'))
+        print('~~~~~~~~~\n')
+        print('Download model.zip and use it for prediction ...\n')
+         print('~~~~~~~~\n')
 
-    def compress_file(self, directory):
-        # create a ZipFile object
-        with ZipFile('model.zip', 'w') as zipObj:
-            # Iterate over all the files in directory
-            for folderName, subfolders, filenames in os.walk(directory):
-                for filename in filenames:
-                    # create complete filepath of file in directory
-                    filePath = os.path.join(folderName, filename)
-                    # Add file to zip
-                    zipObj.write(filePath)
+    def compress_file(self,dirpath, zippath):
+        fzip = zipfile.ZipFile(zippath, 'w', zipfile.ZIP_DEFLATED)
+        basedir = os.path.dirname(dirpath) + '/' 
+        for root, dirs, files in os.walk(dirpath):
+            dirname = root.replace(basedir, '')
+            for f in files:
+                fzip.write(root + '/' + f, dirname + '/' + f)
+        fzip.close()
