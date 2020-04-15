@@ -6,8 +6,7 @@ import nltk
 import zipfile
 import os
 from sentence_transformers import SentenceTransformer, LoggingHandler
-import TrainSentences from TrainSentences
-
+from TrainSentences import TrainSentences
 
 class SimilarSentences:
 
