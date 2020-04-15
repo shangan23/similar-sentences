@@ -13,7 +13,7 @@ pip install similar-sentences
 ### Methods to know
 
 #### SimilarSentences(FilePath,Type)
-  > FilePath: Reference to model.zip for prediction. Reference to sentences.txt for training. 
+  > FilePath: Reference to model.zip for prediction. Reference to sentences.txt for training.\n
   > Type: `predict` or `train`
 
 > .train()
