@@ -1,14 +1,31 @@
 [![PyPI version](https://badge.fury.io/py/similar-sentences.svg)](https://badge.fury.io/py/similar-sentences)
 
-# Similar Sentence Prediction with acurate results
+# Similar sentence Prediction with more acurate results...
 
-## Getting Started
+## Setup
 
 Install the package
 
 ```python
 pip install similar-sentences
 ```
+
+### Methods to know
+
+#### SimilarSentences(FilePath,Type)
+  FilePath: Reference to model.zip for prediction. Reference to sentences.txt for training. 
+  Type: `predict` or `train`
+
+#### .train()
+  Used for training the setences. Which required `(".txt", "train")` as parameter in SimilarSentences
+
+#### .predict()
+  Used for predicting the setences. Which required `(".zip", "predict")` as parameter in SimilarSentences
+  
+#### .reload()
+  Used for reloading (or) updating the model. Which required `(".zip", "predict")` as parameter in SimilarSentences
+  
+## Getting Started
 
 ## Train the model with your dataset
 
