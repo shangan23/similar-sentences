@@ -12,7 +12,6 @@ class TrainSentences:
         if(os.path.isfile(file_path) and self.is_valid_file(file_path)):
             print('Training file validation OK...')
             self.train_file_path = file_path
-            import os
             if not os.path.exists(dir_path+'trained_model'):
                 os.makedirs(dir_path+'trained_model')
             self.model_save_path = dir_path+'trained_model/'
