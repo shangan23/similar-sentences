@@ -9,25 +9,39 @@ from sentence_transformers import SentenceTransformer, LoggingHandler
 from .TrainSentences import TrainSentences
 from sys import exit
 
+
 class SimilarSentences:
 
     def __init__(self, path, type):
         if(type == "predict"):
-            dir_path = os.getcwd()
-            model_path = dir_path+'/model/'
-            print('Scanning the path '+model_path+ ' ...')
-            if(zipfile.is_zipfile(path)):
-                with zipfile.ZipFile(path, 'r') as zip_ref:
-                    zip_ref.extractall(model_path)
-                    if(os.path.isdir(model_path+'0_BERT') and os.path.isdir(model_path+'1_Pooling') and os.path.isfile(model_path+'vector.npy')):
-                        print('Model validation OK...')
-                    else:
-                        exit('Model file is not valid... exiting...')
-                self.model_path = model_path
-            else:
-                exit('Model file is not in .zip format')
+            self.path = path
+            self.load()
         elif(type == "train"):
             self.train_file = path
+
+    def load(self):
+        dir_path = os.getcwd()
+        model_path = dir_path+'/model/'
+        self.model_path = model_path
+        if(not os.path.isdir(model_path+'0_BERT') and not os.path.isdir(model_path+'1_Pooling') and not os.path.isfile(model_path+'vector.npy')):
+            self.reload()
+        else:
+            print('For reloading/updating the model try model.relaod()')
+
+    def reload(self):
+        dir_path = os.getcwd()
+        model_path = dir_path+'/model/'
+        print('Scanning the path '+model_path + ' ...')
+        path = self.path
+        if(zipfile.is_zipfile(path)):
+            with zipfile.ZipFile(path, 'r') as zip_ref:
+                zip_ref.extractall(model_path)
+                if(os.path.isdir(model_path+'0_BERT') and os.path.isdir(model_path+'1_Pooling') and os.path.isfile(model_path+'vector.npy')):
+                    print('Model validation OK...')
+                else:
+                    exit('Model file is not valid... exiting...')
+        else:
+            exit('Model file is not in .zip format')
 
     def get_path(self):
         _vector_file = 'vector.npy'
