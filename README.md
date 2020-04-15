@@ -12,9 +12,9 @@ pip install similar-sentences
 
 ### Methods to know
 
-> SimilarSentences(FilePath,Type)
-  FilePath: Reference to model.zip for prediction. Reference to sentences.txt for training. 
-  Type: `predict` or `train`
+#### SimilarSentences(FilePath,Type)
+  > FilePath: Reference to model.zip for prediction. Reference to sentences.txt for training. 
+  > Type: `predict` or `train`
 
 > .train()
   Used for training the setences. Which required `(".txt", "train")` as parameter in SimilarSentences
