@@ -1,6 +1,8 @@
 [![PyPI version](https://badge.fury.io/py/similar-sentences.svg)](https://badge.fury.io/py/similar-sentences)
 
-# similar-sentences
+# Similar Sentence Prediction with acurate results
+
+## Getting Started
 
 Install the package
 
@@ -10,7 +12,7 @@ pip install similar-sentences
 
 ## Train the model with your dataset
 
-Prepare your dataset and save the content to sentences.txt
+Prepare your dataset and save the content to `sentences.txt`
 
 ```
 Hi, thanks for contacting.
@@ -37,8 +39,11 @@ Happy to help!
 Glad I could help!
 ```
 
+Supply the sentences to build the model.
+
 ```python
 from SimilarSentences import SimilarSentences
+# Make sure the extension is .txt
 model = SimilarSentences('sentences.txt',"train")
 model.train()
 ```
@@ -66,6 +71,7 @@ Output looks like,
   "Hello there! Did I get that right?",
   "Right Hi, how can I help?"
 ]
+
 #detailed output
 [
   [
@@ -90,3 +96,6 @@ Output looks like,
   ]
 ]
 ````
+<sub>The package depends on `sentence-transformers` python package</sub>
+
+:+1: :sparkles: :camel: :tada: :rocket: :metal: :octocat:  HAPPY CODING :octocat: :metal: :rocket: :tada: :camel: :sparkles: :+1:
