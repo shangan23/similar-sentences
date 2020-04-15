@@ -7,6 +7,7 @@ import zipfile
 import os
 from sentence_transformers import SentenceTransformer, LoggingHandler
 from .TrainSentences import TrainSentences
+from sys import exit
 
 class SimilarSentences:
 

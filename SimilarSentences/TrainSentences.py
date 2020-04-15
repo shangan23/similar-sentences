@@ -3,6 +3,7 @@ import logging
 import zipfile
 import os
 from sentence_transformers import SentenceTransformer, LoggingHandler
+from sys import exit
 
 class TrainSentences:
 
