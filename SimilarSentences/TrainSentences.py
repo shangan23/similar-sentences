@@ -58,6 +58,7 @@ class TrainSentences:
         print('~~~~~~~~~\n')
         print('Download model.zip and use it for prediction ...\n')
         print('~~~~~~~~\n')
+        os.rmdir(self.model_save_path)
 
     def compress_file(self,dirpath, zippath):
         fzip = zipfile.ZipFile(zippath, 'w', zipfile.ZIP_DEFLATED)
