@@ -8,7 +8,7 @@ import os
 from sentence_transformers import SentenceTransformer, LoggingHandler
 
 
-class SimilarSentences(object):
+class SimilarSentences:
 
     def __init__(self, path):
         dir_path = os.getcwd()
