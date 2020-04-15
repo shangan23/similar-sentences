@@ -8,6 +8,46 @@ Install the package
 pip install similar-sentences
 ```
 
+## Train the model with your dataset
+
+Prepare your dataset and save the content to sentences.txt
+
+```
+Hi, thanks for contacting.
+Hello there!
+Hi there, welcome!
+Hi, how can I help?
+In a few words, how can help?
+Hi again, welcome back.
+Hi! Welcome back.
+Good morning! 
+Good afternoon! 
+Good evening! 
+Good morning! Welcome.
+Good afternoon! Welcome.
+Good evening! Welcome.
+Hello, how can I help?
+Welcome.
+Welcome back.
+Thanks for contacting.
+Goodbye!
+Thanks for contacting. Goodbye!
+Thanks for contacting. Bye!
+Happy to help!
+Glad I could help!
+```
+
+```python
+from SimilarSentences import SimilarSentences
+model = SimilarSentences('sentences.txt',"train")
+model.train()
+```
+The code snipet will produce model.zip.
+
+## Predicting from your model
+
+Load the model.zip from the training.
+
 ```python
 from SimilarSentences import SimilarSentences
 model = SimilarSentences('model.zip',"predict")
@@ -23,21 +63,29 @@ Output looks like,
 ```python
 #simple output
 [
-  "Did I get that right?",
-  "Hi, how can I help?"
+  "Hello there! Did I get that right?",
+  "Right Hi, how can I help?"
 ]
 #detailed output
 [
   [
     {
+      "sentence": "Hello there!",
+      "score": 0.938870553799856
+    },
+    {
       "sentence": "Did I get that right?",
-      "score": 0.7910412874624612
+      "score": 0.7910412586610753
     }
   ],
   [
     {
+      "sentence": "Right",
+      "score": 0.9161810654762793
+    },
+    {
       "sentence": "Hi, how can I help?",
-      "score": 0.7824735035480156
+      "score": 0.7824734658953297
     }
   ]
 ]
