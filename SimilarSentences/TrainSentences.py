@@ -10,7 +10,8 @@ class TrainSentences:
     def __init__(self, txt_file):
         dir_path = os.getcwd() + '/'
         file_path = dir_path + txt_file
-        if(os.path.isfile(file_path) and self.is_valid_file(file_path)):
+        print('Scanning the path '+file_path+ ' ...')
+        if(os.path.isfile(file_path) and self.get_file_extension(file_path) == ".txt"):
             print('Training file validation OK...')
             self.train_file_path = file_path
             if not os.path.exists(dir_path+'trained_model'):
@@ -19,12 +20,8 @@ class TrainSentences:
         else:
             exit('Training file is not valid... exiting...')
 
-    def is_valid_file(src):
-        VALID_EXTENSIONS = ['.txt']
-        if (not path.isfile(src)):
-            return False
-        root, ext = path.splitext(src)
-        return ext.lower() in VALID_EXTENTIONS
+    def get_file_extension(src):
+        retrun os.path.splitext(src)[-1].lower()
 
     def get_path(self):
         _vector_file = 'vector.npy'

@@ -15,6 +15,7 @@ class SimilarSentences:
         if(type == "predict"):
             dir_path = os.getcwd()
             model_path = dir_path+'/model/'
+            print('Scanning the path '+model_path+ ' ...')
             if(zipfile.is_zipfile(path)):
                 with zipfile.ZipFile(path, 'r') as zip_ref:
                     zip_ref.extractall(model_path)
