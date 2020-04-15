@@ -16,17 +16,17 @@ pip install similar-sentences
   > FilePath: Reference to model.zip for prediction. Reference to sentences.txt for training.\n
   > Type: `predict` or `train`
 
-> .train()
-  Used for training the setences. Which required `(".txt", "train")` as parameter in SimilarSentences
+#### .train()
+ > Used for training the setences. Which required `(".txt", "train")` as parameter in SimilarSentences
 
-> .predict(InputSentences, NumberOfPrediction, DesiredJsonOutput)
-  Used for predicting the setences. Which required `(".zip", "predict")` as parameter in SimilarSentences
-  InputSentences: To find the similar sentence for. 
-  NumberOfPrediction: Number of results for the prediction
-  DesiredJsonOutput: The output will be in JSON format. `simple` produces a plain output. `detailed` produces detailed output with score 
+#### .predict(InputSentences, NumberOfPrediction, DesiredJsonOutput)
+  > Used for predicting the setences. Which required `(".zip", "predict")` as parameter in SimilarSentences\n
+  > InputSentences: To find the similar sentence for. \n
+  > NumberOfPrediction: Number of results for the prediction\n
+  > DesiredJsonOutput: The output will be in JSON format. `simple` produces a plain output. `detailed` produces detailed output with score 
   
-> .reload()
-  Used for reloading (or) updating the model. Which required `(".zip", "predict")` as parameter in SimilarSentences
+#### .reload()
+  > Used for reloading (or) updating the model. Which required `(".zip", "predict")` as parameter in SimilarSentences
   
 ## Getting Started
 
