@@ -1,1 +1,2 @@
-from .SimilarSentences import SimilarSentences,TrainSentences
+from .SimilarSentences import SimilarSentences
+from .SimilarSentences import TrainSentences
