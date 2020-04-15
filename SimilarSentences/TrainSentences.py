@@ -26,11 +26,13 @@ class TrainSentences:
 
     def get_path(self):
         _vector_file = 'vector.npy'
+        _train_file = 'train.txt'
         _files = {
             'model': self.model_save_path,
             'vector': self.model_save_path + _vector_file,
             'training_set': self.train_file_path,
-            'zip_path' : self.zip_save_path+'model.zip'
+            'zip_path' : self.zip_save_path+'model.zip',
+            'train_file' : self.model_save_path + _train_file,
         }
         return _files
 
@@ -39,7 +41,7 @@ class TrainSentences:
         np.set_printoptions(threshold=100)
         logging.basicConfig(format='%(asctime)s - %(message)s',
                             datefmt='%Y-%m-%d %H:%M:%S',
-                            level=logging.INFO,
+                            level=logging.ERROR,
                             handlers=[LoggingHandler()])
         model = SentenceTransformer('bert-base-nli-mean-tokens')
         sentences = open(path.get('training_set')).read().splitlines()
@@ -51,6 +53,7 @@ class TrainSentences:
         np.save(path.get('vector'), sentence_embeddings)
         print('Saving the vector to '+path.get('vector')+'...\n')
         print('Initiating model compression(.zip) ...\n')
+        os.rename(path.get('training_set'), path.get('train_file'))
         self.compress_file(path.get('model'),path.get('zip_path'))
         print('~~~~~~~~~\n')
         print('Download model.zip and use it for prediction ...\n')
