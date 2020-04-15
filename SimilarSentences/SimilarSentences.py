@@ -141,9 +141,9 @@ class TrainSentences:
         # create a ZipFile object
         with ZipFile('model.zip', 'w') as zipObj:
         # Iterate over all the files in directory
-        for folderName, subfolders, filenames in os.walk(directory):
-            for filename in filenames:
-                #create complete filepath of file in directory
-                filePath = os.path.join(folderName, filename)
-                # Add file to zip
-                zipObj.write(filePath)
+            for folderName, subfolders, filenames in os.walk(directory):
+                for filename in filenames:
+                    #create complete filepath of file in directory
+                    filePath = os.path.join(folderName, filename)
+                    # Add file to zip
+                    zipObj.write(filePath)
