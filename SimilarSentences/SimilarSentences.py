@@ -111,7 +111,7 @@ class TrainSentences:
         if (not path.isfile(src)):
             return False
         root, ext = path.splitext(src)
-    return ext.lower() in VALID_EXTENTIONS
+        return ext.lower() in VALID_EXTENTIONS
 
     def get_path(self):
         _vector_file = 'vector.npy'
@@ -137,13 +137,13 @@ class TrainSentences:
         np.save(path.get('training_set'), sentence_embeddings)
         self.compress_file(path.get('model'))
 
-    def compress_file(self,directory):
+    def compress_file(self, directory):
         # create a ZipFile object
         with ZipFile('model.zip', 'w') as zipObj:
-        # Iterate over all the files in directory
+            # Iterate over all the files in directory
             for folderName, subfolders, filenames in os.walk(directory):
                 for filename in filenames:
-                    #create complete filepath of file in directory
+                    # create complete filepath of file in directory
                     filePath = os.path.join(folderName, filename)
                     # Add file to zip
                     zipObj.write(filePath)
