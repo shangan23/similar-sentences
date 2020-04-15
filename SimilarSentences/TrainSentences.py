@@ -21,7 +21,7 @@ class TrainSentences:
             exit('Training file is not valid... exiting...')
 
     def get_file_extension(src):
-        retrun os.path.splitext(src)[-1].lower()
+        return os.path.splitext(src)[-1].lower()
 
     def get_path(self):
         _vector_file = 'vector.npy'
