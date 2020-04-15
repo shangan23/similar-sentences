@@ -1,6 +1,6 @@
 [![PyPI version](https://badge.fury.io/py/similar-sentences.svg)](https://badge.fury.io/py/similar-sentences)
 
-# Similar sentence Prediction with more acurate results...
+# Similar sentence Prediction with more acurate results with your dataset on top of BERT pretrained model.
 
 ## Setup
 
