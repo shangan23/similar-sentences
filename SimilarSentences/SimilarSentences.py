@@ -8,10 +8,11 @@ import os
 from sentence_transformers import SentenceTransformer, LoggingHandler
 import .TrainSentences from TrainSentences
 
+
 class SimilarSentences:
 
-    def __init__(self, path, type="predict"):
-        if(type=="predict"):
+    def __init__(self, path, type):
+        if(type == "predict"):
             dir_path = os.getcwd()
             model_path = dir_path+'/model/'
             if(zipfile.is_zipfile(path)):
@@ -24,9 +25,8 @@ class SimilarSentences:
                 self.model_path = model_path
             else:
                 exit('Model file is not in .zip format')
-        elif(type=="train"):
+        elif(type == "train"):
             self.train_file = path
-        
 
     def get_path(self):
         _vector_file = 'vector.npy'
@@ -93,7 +93,7 @@ class SimilarSentences:
                 simple_data.append(str)
             json_out = json.dumps(simple_data)
         return json_out
-    
+
     def train(self):
         model = TrainSentences(self.train_file)
         model.train()
