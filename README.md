@@ -116,6 +116,4 @@ Output looks like,
   ]
 ]
 ````
-<sub>The package depends on `sentence-transformers` python package</sub>
-
 :+1: :sparkles: :camel: :tada: :rocket: :metal: :octocat:  HAPPY CODING :octocat: :metal: :rocket: :tada: :camel: :sparkles: :+1:
