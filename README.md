@@ -1,4 +1,4 @@
-[![PyPI version](https://badge.fury.io/py/similar-sentences.svg)](https://badge.fury.io/py/similar-sentences)
+[![PyPI version](https://badge.fury.io/py/similar-sentences.svg)](https://badge.fury.io/py/similar-sentences) [![Python 3](https://img.shields.io/badge/python-3.0-blue.svg)](https://www.python.org/downloads/release/python-300/)
 
 # Similar sentence Prediction with more accurate results with your dataset on top of BERT pertained model.
 
