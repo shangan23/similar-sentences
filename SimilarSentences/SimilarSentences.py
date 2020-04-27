@@ -120,7 +120,7 @@ class SimilarSentences:
         if(type == None):
             type = 'excel'
         
-        if(type == 'excel')
+        if(type == 'excel'):
             output = self.create_excel()
     
     def create_excel(self):
