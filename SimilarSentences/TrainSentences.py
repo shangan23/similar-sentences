@@ -6,15 +6,17 @@ import shutil
 from sentence_transformers import SentenceTransformer, LoggingHandler
 from sys import exit
 
+
 class TrainSentences:
 
-    def __init__(self, txt_file):
+    def __init__(self, txt_file, pretrain_model: str = None):
         dir_path = os.getcwd() + '/'
         file_path = dir_path + txt_file
         print('\n')
-        print('Scanning the path '+file_path+ ' ...')
-        self.pretrain_model = 'bert-base-nli-mean-tokens'
-        print('Pretrained model is set to '+self.pretrain_model+ ' ...')
+        print('Scanning the path '+file_path + ' ...')
+        pretrain = pretrain_model if pretrain_model else 'bert-base-nli-mean-tokens'
+        self.pretrain_model = pretrain
+        print('Pretrained model is set to '+self.pretrain_model + ' ...')
         if(os.path.isfile(file_path) and self.get_file_extension(file_path) == ".txt"):
             print('Training file validation OK...')
             self.train_file_path = file_path
@@ -24,12 +26,8 @@ class TrainSentences:
             self.zip_save_path = dir_path+'/'
         else:
             exit('Training file is not valid... exiting...')
-    
-    def pretrained_model(self,model_name):
-        self.pretrain_model = model_name
-        print('Pretrained model is reset to '+model_name+ ' ...')
 
-    def get_file_extension(self,src):
+    def get_file_extension(self, src):
         return os.path.splitext(src)[-1].lower()
 
     def get_path(self):
@@ -39,8 +37,8 @@ class TrainSentences:
             'model': self.model_save_path,
             'vector': self.model_save_path + _vector_file,
             'training_set': self.train_file_path,
-            'zip_path' : self.zip_save_path+'model.zip',
-            'train_file' : self.model_save_path + _train_file,
+            'zip_path': self.zip_save_path+'model.zip',
+            'train_file': self.model_save_path + _train_file,
         }
         return _files
 
@@ -61,12 +59,12 @@ class TrainSentences:
         print('Saving the vector to '+path.get('vector')+'...')
         print('Initiating model compression(.zip) ...')
         os.rename(path.get('training_set'), path.get('train_file'))
-        self.compress_file(path.get('model'),path.get('zip_path'))
+        self.compress_file(path.get('model'), path.get('zip_path'))
         print('→ Download "model.zip" and use it for prediction ...')
-       
-    def compress_file(self,dirpath, zippath):
+
+    def compress_file(self, dirpath, zippath):
         fzip = zipfile.ZipFile(zippath, 'w', zipfile.ZIP_DEFLATED)
-        basedir = os.path.dirname(dirpath) + '/' 
+        basedir = os.path.dirname(dirpath) + '/'
         for root, dirs, files in os.walk(dirpath):
             dirname = root.replace(basedir, '')
             for f in files:
