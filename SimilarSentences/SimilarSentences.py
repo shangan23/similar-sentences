@@ -16,6 +16,7 @@ class SimilarSentences:
     def __init__(self, path, type):
         logging.basicConfig(level=logging.ERROR)
         nltk.download('punkt')
+        self.get_train_object()
         if(type == "predict"):
             self.path = path
             self.load()
@@ -112,13 +113,15 @@ class SimilarSentences:
             json_out = json.dumps(simple_data)
         return json_out
     
+    def get_train_object(self):
+        if(self.train_obj == ''):
+            self.train_obj = TrainSentences(self.train_file)
+    
     def load_pretrained_model(self,model_name):
-        model = TrainSentences(self.train_file)
-        model.pretrained_model(model_name)
+        self.train_obj.pretrained_model(model_name)
 
     def train(self):
-        model = TrainSentences(self.train_file)
-        model.train()
+        self.train_obj.train()
 
     def batch_output(self, type: str = None):
         if(type == None):
