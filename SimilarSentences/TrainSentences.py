@@ -25,7 +25,7 @@ class TrainSentences:
         else:
             exit('Training file is not valid... exiting...')
     
-    def pretrained_model(self,model_name)
+    def pretrained_model(self,model_name):
         self.predtrained_model = model_name
         print('Pretrained model is reset to '+model_name+ ' ...')
 
