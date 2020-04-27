@@ -116,6 +116,10 @@ class SimilarSentences:
         model = TrainSentences(self.train_file)
         model.train()
 
+    def pretrained_model(self,model_name):
+        model = TrainSentences(self.train_file)
+        model.pretrained_model(model_name)
+
     def batch_output(self, type: str = None):
         if(type == None):
             type = 'excel'

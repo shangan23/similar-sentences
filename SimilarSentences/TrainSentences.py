@@ -13,8 +13,8 @@ class TrainSentences:
         file_path = dir_path + txt_file
         print('\n')
         print('Scanning the path '+file_path+ ' ...')
-        self.predtrained_model = 'bert-base-nli-mean-tokens'
-        print('Pretrained model is set to '+self.predtrained_model+ ' ...')
+        self.pretrain_model = 'bert-base-nli-mean-tokens'
+        print('Pretrained model is set to '+self.pretrain_model+ ' ...')
         if(os.path.isfile(file_path) and self.get_file_extension(file_path) == ".txt"):
             print('Training file validation OK...')
             self.train_file_path = file_path
@@ -26,7 +26,7 @@ class TrainSentences:
             exit('Training file is not valid... exiting...')
     
     def pretrained_model(self,model_name):
-        self.predtrained_model = model_name
+        self.pretrain_model = model_name
         print('Pretrained model is reset to '+model_name+ ' ...')
 
     def get_file_extension(self,src):
@@ -51,7 +51,7 @@ class TrainSentences:
                             datefmt='%Y-%m-%d %H:%M:%S',
                             level=logging.ERROR,
                             handlers=[LoggingHandler()])
-        model = SentenceTransformer(self.predtrained_model)
+        model = SentenceTransformer(self.pretrain_model)
         sentences = open(path.get('training_set')).read().splitlines()
         sentence_embeddings = model.encode(sentences)
         vecs = np.stack(sentence_embeddings)
