@@ -116,7 +116,7 @@ class SimilarSentences:
         model = TrainSentences(self.train_file)
         model.train()
 
-    def batch_output(self, type: str = None);
+    def batch_output(self, type: str = None):
         if(type == None):
             type = 'excel'
         
