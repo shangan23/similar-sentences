@@ -16,6 +16,7 @@ class SimilarSentences:
     def __init__(self, path, type):
         logging.basicConfig(level=logging.ERROR)
         nltk.download('punkt')
+        self.train_obj = ''
         self.get_train_object()
         if(type == "predict"):
             self.path = path
