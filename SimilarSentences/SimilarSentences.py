@@ -5,6 +5,7 @@ import json
 import nltk
 import zipfile
 import os
+import xlsxwriter
 from sentence_transformers import SentenceTransformer, LoggingHandler
 from .TrainSentences import TrainSentences
 from sys import exit
@@ -114,3 +115,29 @@ class SimilarSentences:
     def train(self):
         model = TrainSentences(self.train_file)
         model.train()
+
+    def batch_output(self, type: str = None);
+        if(type == None):
+            type = 'excel'
+        
+        if(type == 'excel')
+            output = self.create_excel()
+    
+    def create_excel(self):
+        workbook = xlsxwriter.Workbook('Results.xlsx') 
+        # Some data we want to write to the worksheet. 
+        sentences_scores = ( 
+            ['Given Sentence',"Suggestion(1)", "Score(1)"], 
+        ) 
+        row = 0
+        col = 0
+        
+        # Iterate over the data and write it out row by row. 
+        for input_sentence, output_sentence, score in (sentences_scores): 
+            worksheet.write(row, col, input_sentence) # Given sentence
+            worksheet.write(row, col + 1, output_sentence) # Suggested Sentence
+            worksheet.write(row, col + 2, score) # Score
+            row += 1
+        
+        workbook.close() 
+

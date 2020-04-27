@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="similar-sentences",
-    version="1.6",
+    version="1.7",
     author="Shankar Ganesh Jayaraman",
     author_email="shangan.23@gmail.com",
     description="Similar sentence prediction",
@@ -14,7 +14,8 @@ setuptools.setup(
     url="https://github.com/shangan23/similar-sentences",
     packages=setuptools.find_packages(),
     install_requires=[
-        "sentence-transformers"
+        "sentence-transformers",
+        "xlsxwriter"
     ],
     classifiers=[
         "Development Status :: 4 - Beta",
