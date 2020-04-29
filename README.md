@@ -40,7 +40,7 @@ pip install similar-sentences
   * Used for reloading (or) updating the model. Which required `(".zip", "predict")` as parameter in SimilarSentences
 
 #### .batch_predict(BatchFile,NumberOfPrediction)
-  * Used for reloading (or) updating the model. Which required `(".zip", "predict")` as parameter in SimilarSentences
+  * This method will export the data with 3 columns in excel format. Columns ['Sentence','Suggestion','Score']
   * **BatchFile**: Batch file with sentences to predict, has to be in .txt format.   
   * **NumberOfPrediction**: Number of results for the prediction  
   
