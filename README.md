@@ -13,20 +13,36 @@ pip install similar-sentences
 ### Methods to know
 
 #### SimilarSentences(FilePath,Type)
-  * **FilePath**: Reference to model.zip for prediction. Reference to sentences.txt for training.<br/>
+  * **FilePath**: Reference to model.zip for prediction. Reference to sentences.txt for training.  
   * **Type**: `predict` or `train`
 
-#### .train()
+#### .train(PreTrainedModel)
  * Used for training the setences. Which required `(".txt", "train")` as parameter in SimilarSentences
+ * **PreTrainedModel (optional)**: Any of the below model can be passed for training,by default #1 will be applied
+ 1. bert-base-nli-mean-tokens: BERT-base model with mean-tokens pooling. Performance: STSbenchmark: 77.12
+ 2. bert-base-nli-max-tokens: BERT-base with max-tokens pooling. Performance: STSbenchmark: 77.21
+ 3. bert-base-nli-cls-token: BERT-base with cls token pooling. Performance: STSbenchmark: 76.30
+ 4. bert-large-nli-mean-tokens: BERT-large with mean-tokens pooling. Performance: STSbenchmark: 79.19
+ 5. bert-large-nli-max-tokens: BERT-large with max-tokens pooling. Performance: STSbenchmark: 78.41
+ 6. bert-large-nli-cls-token:  BERT-large with CLS token pooling. Performance: STSbenchmark: 78.29
+ 7. roberta-base-nli-mean-tokens: RoBERTa-base with mean-tokens pooling. Performance: STSbenchmark: 77.49
+ 8. roberta-large-nli-mean-tokens: RoBERTa-base with mean-tokens pooling. Performance: STSbenchmark: 78.69
+ 9. distilbert-base-nli-mean-tokens: DistilBERT-base with mean-tokens pooling. Performance: STSbenchmark: 76.97
+ [More details](https://github.com/UKPLab/sentence-transformers/blob/master/docs/pretrained-models/nli-models.md#pre-trained-models)
 
 #### .predict(InputSentences, NumberOfPrediction, DesiredJsonOutput)
-  * Used for predicting the setences. Which required `(".zip", "predict")` as parameter in SimilarSentences<br/>
-  * **InputSentences**: To find the similar sentence for. <br/>
-  * **NumberOfPrediction**: Number of results for the prediction<br/>
+  * Used for predicting the setences. Which required `(".zip", "predict")` as parameter in SimilarSentences  
+  * **InputSentences**: To find the similar sentence for.   
+  * **NumberOfPrediction**: Number of results for the prediction  
   * **DesiredJsonOutput**: The output will be in JSON format. `simple` produces a plain output. `detailed` produces detailed output with score 
   
 #### .reload()
   * Used for reloading (or) updating the model. Which required `(".zip", "predict")` as parameter in SimilarSentences
+
+#### .batch_predict(BatchFile,NumberOfPrediction)
+  * Used for reloading (or) updating the model. Which required `(".zip", "predict")` as parameter in SimilarSentences
+  * **BatchFile**: Batch file with sentences to predict, has to be in .txt format.   
+  * **NumberOfPrediction**: Number of results for the prediction  
   
 ## Getting Started
 
