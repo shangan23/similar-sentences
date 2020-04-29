@@ -28,6 +28,7 @@ pip install similar-sentences
  7. roberta-base-nli-mean-tokens: RoBERTa-base with mean-tokens pooling. Performance: STSbenchmark: 77.49
  8. roberta-large-nli-mean-tokens: RoBERTa-base with mean-tokens pooling. Performance: STSbenchmark: 78.69
  9. distilbert-base-nli-mean-tokens: DistilBERT-base with mean-tokens pooling. Performance: STSbenchmark: 76.97  
+ 
  [More details](https://github.com/UKPLab/sentence-transformers/blob/master/docs/pretrained-models/nli-models.md#pre-trained-models)
 
 #### .predict(InputSentences, NumberOfPrediction, DesiredJsonOutput)
